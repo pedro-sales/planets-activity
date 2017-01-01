@@ -1,0 +1,7 @@
+[Activity]
+name = Planets
+bundle_id = org.sugarlabs.Planets
+icon = planets
+exec = sugar-activity activity.PlanetsActivity
+activity_version = 1
+show_launcher = yes
