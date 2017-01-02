@@ -62,6 +62,12 @@ class PlanetsActivity(activity.Activity):
         toolbar_box.toolbar.insert(delBut, -1)
         delBut.show()
 
+        pauseBut = ToolButton('media-playback-pause')
+        pauseBut.connect('clicked', self.activity.pause_button_pressed)
+        toolbar_box.toolbar.insert(pauseBut, -1)
+        pauseBut.show()
+        self.activity.pauseBut = pauseBut
+
 
         resBut = ToolButton('system-restart')
         resBut.set_tooltip(_("Restart game"))
@@ -73,7 +79,6 @@ class PlanetsActivity(activity.Activity):
         helpBut.connect('clicked', self.activity.help_button_pressed)
         toolbar_box.toolbar.insert(helpBut, -1)
         helpBut.show()
-
         
         separator = gtk.SeparatorToolItem()
         separator.props.draw = False

@@ -41,8 +41,7 @@ class PlanetsGame():
 
         font = pygame.font.SysFont(None, 20)
 
-        helpString = """ 
-        HELP
+        helpString = """HELP
         (Click help icon to close)
 
         Click and hold anywhere on the screen to create a planet.
@@ -56,6 +55,7 @@ class PlanetsGame():
         s - Show selected planet
         d - Delete selected planet
         r - Delete all planets
+        p - Play/Pause
 
         With a planet selected, you can create a second one and in the second click, instead of
         using the left mouse button, use the right mouse button to give it speed relative to the
@@ -115,6 +115,8 @@ class PlanetsGame():
                         self.pendingAction = 'res'
                     elif event.key == ord('h'):
                         self.pendingAction = 'help'
+                    elif event.key == ord('p'):
+                        self.pause_button_pressed(self.pauseBut)
 
             if self.pendingAction != '':
                 if self.pendingAction == 'center':
@@ -190,7 +192,7 @@ class PlanetsGame():
                     planet['radius'] = 2.0
 
 
-            if self.planetEditing == -1:
+            if self.planetEditing == -1 and not self.paused:
                 for planet0 in self.planets:   #Calc forces for each pair, calc accel from forces, calc speed from accel
                     forceX = 0.0
                     forceY = 0.0
@@ -211,7 +213,7 @@ class PlanetsGame():
             surface.fill((0,0,0))
 
             for planet in self.planets:   #Calc new position for each planet
-                if self.planetEditing == -1:
+                if self.planetEditing == -1 and not self.paused:
                     x,y = planet['center']
                     planet['center'] = (x+planet['velx']*dt, y+planet['vely']*dt)
                     planet['traces'].append((planet['center'][0], planet['center'][1]))
@@ -270,6 +272,10 @@ class PlanetsGame():
 
     def pause_button_pressed (self, button):
         self.paused = not self.paused
+        if self.paused:
+            button.set_icon('media-playback-start')
+        else:
+            button.set_icon('media-playback-pause')
 
     # Called to save the state of the game to the Journal.
     def write_file(self, file_path):
