@@ -15,6 +15,10 @@ class PlanetsGame():
     def __init__(self):
         self.planets = []
 
+    def load_def_screen (self):
+        self.read_file(self.bundlePath + '/defaultScreen')
+        pass
+
     def run(self):
         velScale = 1    #Velocity scale
         FPS = 60
@@ -117,6 +121,8 @@ class PlanetsGame():
                         self.pendingAction = 'help'
                     elif event.key == ord('p'):
                         self.pause_button_pressed(self.pauseBut)
+                    #elif event.key == ord('g'):
+                    #    self.write_file(self.bundlePath + '/defaultScreen')
 
             if self.pendingAction != '':
                 if self.pendingAction == 'center':

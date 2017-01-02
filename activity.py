@@ -23,6 +23,8 @@ class PlanetsActivity(activity.Activity):
         # Change the following number to change max participants
         self.max_participants = 1
         self.activity = game.PlanetsGame()
+        self.activity.bundlePath = activity.get_bundle_path()
+        self.activity.load_def_screen()
         self.build_toolbar()
         self._pygamecanvas = sugargame.canvas.PygameCanvas(self)
         self.set_canvas(self._pygamecanvas)
