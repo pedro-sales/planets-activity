@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-16 06:48+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: activity/activity.info:2
+msgid "Planets"
+msgstr ""
+
+#: game.py:49
+msgid ""
+"HELP\n"
+"(Click help icon to close)\n"
+"\n"
+"Click and hold anywhere on the screen to create a planet.\n"
+"Click again to give speed to that planet, speed depends on the distance "
+"between\n"
+"the planet and the second click. Try placing a big planet with no speed and "
+"a smaller\n"
+"one with speed some distance from the first one, watch how they orbit!\n"
+"\n"
+"KEY SHORTCUTS:\n"
+"h - Open/close this menu\n"
+"c - Center view on planet\n"
+"s - Show selected planet\n"
+"d - Delete selected planet\n"
+"r - Delete all planets\n"
+"p - Play/Pause\n"
+"\n"
+"With a planet selected, you can create a second one and in the second click, "
+"instead of\n"
+"using the left mouse button, use the right mouse button to give it speed "
+"relative to the\n"
+"selected planet. This is useful if you want to make a planet orbit another "
+"one in motion."
+msgstr ""
+
+#: activity.py:49
+msgid "Center view on planet"
+msgstr ""
+
+#: activity.py:55
+msgid "Show selected planet"
+msgstr ""
+
+#: activity.py:62
+msgid "Delete selected planet"
+msgstr ""
+
+#: activity.py:75
+msgid "Restart game"
+msgstr ""

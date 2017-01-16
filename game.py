@@ -4,6 +4,7 @@ import pygame, math, pickle
 from pygame.locals import *
 from pygame import gfxdraw
 
+from gettext import gettext as _
 
 import gtk, sys
 
@@ -45,25 +46,27 @@ class PlanetsGame():
 
         font = pygame.font.SysFont(None, 20)
 
-        helpString = """HELP
-        (Click help icon to close)
+        helpString = _("""HELP
+(Click help icon to close)
 
-        Click and hold anywhere on the screen to create a planet.
-        Click again to give speed to that planet, speed depends on the distance between
-        the planet and the second click. Try placing a big planet with no speed and a smaller
-        one with speed some distance from the first one, watch how they orbit!
+Click and hold anywhere on the screen to create a planet.
+Click again to give speed to that planet, speed depends on the distance between
+the planet and the second click. Try placing a big planet with no speed and a smaller
+one with speed some distance from the first one, watch how they orbit!
 
-        KEY SHORTCUTS:
-        h - Open/close this menu
-        c - Center view on planet
-        s - Show selected planet
-        d - Delete selected planet
-        r - Delete all planets
-        p - Play/Pause
+KEY SHORTCUTS:
+h - Open/close this menu
+c - Center view on planet
+s - Show selected planet
+d - Delete selected planet
+r - Delete all planets
+p - Play/Pause
 
-        With a planet selected, you can create a second one and in the second click, instead of
-        using the left mouse button, use the right mouse button to give it speed relative to the
-        selected planet. This is useful if you want to make a planet orbit another one in motion."""
+With a planet selected, you can create a second one and in the second click, instead of
+using the left mouse button, use the right mouse button to give it speed relative to the
+selected planet. This is useful if you want to make a planet orbit another one in motion.""")
+
+        helpString = helpString.decode('utf-8')
 
 
         G = 10
@@ -209,7 +212,7 @@ class PlanetsGame():
                             distX, distY = planet1['center'][0] - planet0['center'][0], planet1['center'][1] - planet0['center'][1]
                             dist = math.sqrt(distX**2 + distY**2)
                             if dist > 5:
-                                force = (G * mass0 * mass1)/dist**2
+                                force = (G * mass0 * mass1)/(dist**2)
                                 forceX += force * (distX/dist)
                                 forceY += force * (distY/dist)
 
